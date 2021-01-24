@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 const UpdateComment = () => {
+// const history = useHistory()
 const{id}= useParams();
+console.log(id);
 const [data , setDate] = useState([])
 console.log(data);
 useEffect(() =>{
 fetch(`http://localhost:5000/editcomment/${id}`)
 .then(response => response.json())
-.then(data =>setDate(data.message[0]))
+.then(data =>setDate(data[0]))
 },[])
 
 const { register, handleSubmit, watch, errors } = useForm();
@@ -18,8 +20,8 @@ const { register, handleSubmit, watch, errors } = useForm();
   formdata.append('id',id);
   formdata.append('name',data.name);
   formdata.append('email',data.email);
-  fetch('http://localhost:5000/update',{
- method: 'PUT',
+  fetch(`http://localhost:5000/update/${id}`,{
+    method:'PATCH',
  body: formdata
   
   })

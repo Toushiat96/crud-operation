@@ -21,7 +21,7 @@ useEffect(() =>{
 fetch('http://localhost:5000/show')
 .then(response => response.json())
 .then(data=>{
-setshowname(data.result)
+setshowname(data)
 })
 })
 

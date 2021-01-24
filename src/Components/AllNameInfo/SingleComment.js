@@ -2,15 +2,15 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 const SingleComment = (props) => {
-    const{name,email,body,id} =props.comment;
+    const{name,email,body,_id} =props.comment;
     
     
     const handledelete=()=>{
-    const formdata = new FormData();
-    formdata.append("id",id)
-    fetch('http://localhost:5000/delete',{
+    // const formdata = new FormData();
+    // formdata.append("id",id)
+    fetch(`http://localhost:5000/delete/${_id}`,{
     method:'DELETE',
-    body:formdata
+   
     })
     .then(response => response.json())
     .then(data =>{
@@ -26,7 +26,7 @@ const SingleComment = (props) => {
           <Card.Text>
            {body}
           </Card.Text>
-          <Link to={"/edit/"+id}>
+          <Link to={"/edit/"+_id}>
           <Button variant="primary" >EDIT</Button></Link>
           <Button variant="danger" onClick={handledelete}>DELETE</Button>
         </Card.Body>

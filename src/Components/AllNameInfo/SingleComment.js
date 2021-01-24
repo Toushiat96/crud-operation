@@ -8,7 +8,7 @@ const SingleComment = (props) => {
     const handledelete=()=>{
     // const formdata = new FormData();
     // formdata.append("id",id)
-    fetch(`http://localhost:5000/delete/${_id}`,{
+    fetch(`https://lit-hollows-62970.herokuapp.com/delete/${_id}`,{
     method:'DELETE',
    
     })

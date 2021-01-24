@@ -9,7 +9,7 @@ console.log(id);
 const [data , setDate] = useState([])
 console.log(data);
 useEffect(() =>{
-fetch(`http://localhost:5000/editcomment/${id}`)
+fetch(`https://lit-hollows-62970.herokuapp.com/editcomment/${id}`)
 .then(response => response.json())
 .then(data =>setDate(data[0]))
 },[])
@@ -20,7 +20,7 @@ const { register, handleSubmit, watch, errors } = useForm();
   formdata.append('id',id);
   formdata.append('name',data.name);
   formdata.append('email',data.email);
-  fetch(`http://localhost:5000/update/${id}`,{
+  fetch(`https://lit-hollows-62970.herokuapp.com/update/${id}`,{
     method:'PATCH',
  body: formdata
   

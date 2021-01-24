@@ -18,7 +18,7 @@ const handleshow =()=>{
     
 }
 useEffect(() =>{
-fetch('http://localhost:5000/show')
+fetch('https://lit-hollows-62970.herokuapp.com/show')
 .then(response => response.json())
 .then(data=>{
 setshowname(data)

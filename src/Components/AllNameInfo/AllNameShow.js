@@ -9,7 +9,7 @@ const AllNameShow = (props) => {
     formdata.append("name", name);
     formdata.append("email", email);
     formdata.append("body", body);
-    fetch("http://localhost:5000/add", {
+    fetch("https://lit-hollows-62970.herokuapp.com/add", {
       method: "POST",
       body: formdata,
     })
